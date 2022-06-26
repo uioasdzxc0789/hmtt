@@ -12,7 +12,7 @@ module.exports = defineConfig({
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = '黑马头条'
+        args[0].title = '仿今日头条'
         return args
       })
   }

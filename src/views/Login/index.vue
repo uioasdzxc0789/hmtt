@@ -1,10 +1,12 @@
 <template>
-  <router-view></router-view>
+<div>
+    登录
+</div>
 </template>
 
 <script>
 export default {
-  created () { },
+  created () {},
   data () {
     return {}
   },
@@ -16,5 +18,6 @@ export default {
 }
 </script>
 
-<style scoped lang='less'>
+<style scoped>
+
 </style>
