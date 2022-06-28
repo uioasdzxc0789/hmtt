@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="登录">
+    <van-nav-bar title="登录" @click-left="$router.back()">
       <template #left>
         <van-icon name="cross" />
       </template>
@@ -16,7 +16,8 @@
         ]"
       >
         <!-- 插槽和属性名同时有的时间，优先插槽 -->
-        <i class="toutiao toutiao-shouji" slot="left-icon"></i>
+        <!-- <i class="toutiao toutiao-shouji" slot="left-icon"></i> -->
+        <MyIcon name="shouji" slot="left-icon"></MyIcon>
       </van-field>
       <van-field
         v-model.trim="code"
@@ -28,7 +29,8 @@
           { pattern: /^\d{6}$/, message: '验证码长度必须是6位' },
         ]"
       >
-        <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i>
+        <!-- <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i> -->
+        <MyIcon name="yanzhengma" slot="left-icon"></MyIcon>
         <template #button>
           <van-count-down
             v-if="isCountDownShow"
@@ -62,7 +64,7 @@ export default {
   created () { },
   data () {
     return {
-      mobile: '18042476213',
+      mobile: '13911111111',
       code: '246810',
       time: 5 * 1000,
       isCountDownShow: false// 默认不显示倒计时效果
@@ -74,6 +76,7 @@ export default {
       console.log(res)
       // token有效期2小时，两种思路，让用户重新登录，refresh_token
       this.$store.commit('setUser', res.data.data)
+      this.$router.push({ name: 'my' })
     },
     async onSendSms () {
       try {
