@@ -92,7 +92,7 @@ export default {
   methods: {
     async logout () {
       try {
-        await this.$dialog.confirm({ message: '确定退出吗' })
+        await this.$dialog.confirm({ message: '确定退出吗?' })
         this.$store.commit('setUser', {})
       } catch (err) {
         console.log(err)

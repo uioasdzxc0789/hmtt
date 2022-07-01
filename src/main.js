@@ -10,8 +10,15 @@ import 'amfe-flexible'
 import 'vant/lib/index.less'
 // import '@/styles/base.less'
 import '@/styles/index.less'
-Vue.component('MyIcon', MyIcon)
+
+// 一次性把filters/index.js中所有的按需导出全部导进来,作为obj属性，Object.keys获取整个数组
+import * as obj from '@/filters/index'
+Object.keys(obj).forEach(key => {
+  Vue.filter(key, obj[key])
+})
+
 Vue.config.productionTip = false
+Vue.component('MyIcon', MyIcon)
 
 Vue.use(Vant)
 new Vue({
@@ -19,3 +26,14 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+// 给页面上所有的元素绑定滚动事件
+//  只要谁滚动 就打印出来
+// setTimeout(() => {
+//   const list = document.querySelectorAll('*')
+//   list.forEach(item => {
+//     item.onscroll = function (e) {
+//       console.log(e.target)
+//     }
+//   })
+// }, 1000)
