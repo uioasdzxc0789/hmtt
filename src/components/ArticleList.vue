@@ -73,7 +73,7 @@ export default {
       }
       try {
         const res = await getArticleList({ channel_id: this.id, timestamp: this.timestamp })
-        console.log(res)
+        // console.log(res)
         this.timestamp = res.data.data.pre_timestamp
         // 若数据已全部加载完毕，则直接将 finished 设置成 true 即可。
         if (this.timestamp === null) {

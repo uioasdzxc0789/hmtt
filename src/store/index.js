@@ -30,7 +30,7 @@ export default new Vuex.Store({
       state.searchHistoryList.splice(index, 1)
     },
     // 删除所有
-    delAllHistory (state, payload) {
+    delAllHistory (state) {
       state.searchHistoryList = []
     }
   },

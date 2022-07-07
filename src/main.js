@@ -13,13 +13,17 @@ import '@/styles/index.less'
 
 // 一次性把filters/index.js中所有的按需导出全部导进来,作为obj属性，Object.keys获取整个数组
 import * as obj from '@/filters/index'
+
+import FollowUser from '@/components/FollowUser.vue'
+// 引入全局注册的js文件
+import '@/components'
 Object.keys(obj).forEach(key => {
   Vue.filter(key, obj[key])
 })
 
 Vue.config.productionTip = false
 Vue.component('MyIcon', MyIcon)
-
+Vue.component(FollowUser.name, FollowUser)
 Vue.use(Vant)
 new Vue({
   router,

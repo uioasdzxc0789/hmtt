@@ -2,7 +2,7 @@ import store from '@/store'
 import axios from 'axios'
 const instance = axios.create({
   baseURL: 'http://toutiao.itheima.net/v1_0',
-  timeout: 5000
+  timeout: 10000
 })
 
 // 请求拦截器，一堆ajax请求配置项要做的事，就可以提取到请求拦截器，只需要写一次
